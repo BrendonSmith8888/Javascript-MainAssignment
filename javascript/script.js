@@ -7,8 +7,7 @@ let playerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
   let upper = playerSelection.toUpperCase();
-
-  // Note on Computer's Choice
+  // Note on Computer's Choices:
   // computerSelection 0 = Paper
   // computerSelection 1 = Rock
   // computerSelection 2 = Scissors
@@ -16,32 +15,80 @@ function playRound(playerSelection, computerSelection) {
   if (upper === "ROCK") {
     if (computerSelection === 0) {
       computerScore++;
-      return "You lose! Paper beats " + playerSelection;
+      return (
+        "Computer's Choice: PAPER | Player's Choice: " +
+        upper +
+        "\n" +
+        "You lose! Paper beats " +
+        playerSelection
+      );
     } else if (computerSelection === 1) {
-      return "Draw";
+      return (
+        "Computer's Choice: ROCK | Player's Choice: " + upper + "\n" + "Draw"
+      );
     } else if (computerSelection === 2) {
       playerScore++;
-      return "You Win! " + playerSelection + " beats Scissors";
+      return (
+        "Computer's Choice: SCISSORS | Player's Choice: " +
+        upper +
+        "\n" +
+        "You Win! " +
+        playerSelection +
+        " beats Scissors"
+      );
     }
   } else if (upper === "PAPER") {
     if (computerSelection === 0) {
-      return "Draw";
+      return (
+        "Computer's Choice: PAPER | Player's Choice: " + upper + "\n" + "Draw"
+      );
     } else if (computerSelection === 1) {
       playerScore++;
-      return "You Win! " + playerSelection + " beats Rock";
+      return (
+        "Computer's Choice: ROCK | Player's Choice: " +
+        upper +
+        "\n" +
+        "You Win! " +
+        playerSelection +
+        " beats Rock"
+      );
     } else if (computerSelection === 2) {
       computerScore++;
-      return "You lose! Scissors beats " + playerSelection;
+      return (
+        "Computer's Choice: SCISSORS | Player's Choice: " +
+        upper +
+        "\n" +
+        "You lose! Scissors beats " +
+        playerSelection
+      );
     }
   } else if (upper === "SCISSORS") {
     if (computerSelection === 0) {
       playerScore++;
-      return "You Win! " + playerSelection + " beats Paper";
+      return (
+        "Computer's Choice: PAPER | Player's Choice: " +
+        upper +
+        "\n" +
+        "You Win! " +
+        playerSelection +
+        " beats Paper"
+      );
     } else if (computerSelection === 1) {
       computerScore++;
-      return "You lose! Rock beats " + playerSelection;
+      return (
+        "Computer's Choice: ROCK | Player's Choice: " +
+        upper +
+        "\n" +
+        "You lose! Rock beats " +
+        playerSelection
+      );
     } else if (computerSelection === 2) {
-      return "Draw";
+      return (
+        "Computer's Choice: SCISSORS | Player's Choice: " +
+        upper +
+        "\n" +
+        "Draw"
+      );
     }
   } else {
     return "Invalid word. Please enter Rock, Paper or Scissors";
@@ -49,6 +96,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  console.clear();
   for (let i = 0; i < 5; i++) {
     const playerSelection = prompt("Enter Rock, Paper or Scissors");
     const computerSelection = computerPlay();
@@ -56,24 +104,36 @@ function game() {
     console.log(
       "Score is: Computer: " + computerScore + " Player: " + playerScore
     );
-    
   }
-  if(computerScore>playerScore){
-    console.log("Computer won 5-match series: "+computerScore+"-"+playerScore+". Bad Luck")
+  if (computerScore > playerScore) {
+    console.log(
+      "Computer the won 5-match series: " +
+        computerScore +
+        "-" +
+        playerScore +
+        ". Bad Luck"
+    );
+  } else if (computerScore < playerScore) {
+    console.log(
+      "You won the 5-match series: " +
+        playerScore +
+        "-" +
+        computerScore +
+        ". Well Done"
+    );
+  } else {
+    console.log(
+      "The 5-match series was drawn: " + computerScore + "-" + playerScore
+    );
   }
-  else if(computerScore<playerScore){
-    console.log("You won 5-match series: "+playerScore+"-"+computerScore+". Well Done")
-  }
-  else{
-    console.log("The 5-match series was drawn: "+computerScore+"-"+playerScore)
-  }
+  computerScore = 0;
+  playerScore = 0;
 }
 
-/* game(); */
-
 function bestOfFiveGames() {
+  console.clear();
   let computerScore = 0;
-  let playerScore = 0;  
+  let playerScore = 0;
 
   while (computerScore < 3 && playerScore < 3) {
     let playerSelection = prompt("Enter Rock, Paper or Scissors");
@@ -82,31 +142,40 @@ function bestOfFiveGames() {
     if (upper === "ROCK") {
       if (computerSelection === 0) {
         computerScore++;
+        console.log("Computer's Choice: PAPER | Player's Choice: " + upper);
         console.log("You lose! Paper beats " + playerSelection);
       } else if (computerSelection === 1) {
+        console.log("Computer's Choice: ROCK | Player's Choice: " + upper);
         console.log("Draw");
       } else if (computerSelection === 2) {
         playerScore++;
+        console.log("Computer's Choice: SCISSORS | Player's Choice: " + upper);
         console.log("You Win! " + playerSelection + " beats Scissors");
       }
     } else if (upper === "PAPER") {
       if (computerSelection === 0) {
+        console.log("Computer's Choice: PAPER | Player's Choice: " + upper);
         console.log("Draw");
       } else if (computerSelection === 1) {
         playerScore++;
+        console.log("Computer's Choice: ROCK | Player's Choice: " + upper);
         console.log("You Win! " + playerSelection + " beats Rock");
       } else if (computerSelection === 2) {
         computerScore++;
+        console.log("Computer's Choice: SCISSORS | Player's Choice: " + upper);
         console.log("You lose! Scissors beats " + playerSelection);
       }
     } else if (upper === "SCISSORS") {
       if (computerSelection === 0) {
         playerScore++;
+        console.log("Computer's Choice: PAPER | Player's Choice: " + upper);
         console.log("You Win! " + playerSelection + " beats Paper");
       } else if (computerSelection === 1) {
         computerScore++;
+        console.log("Computer's Choice: ROCK | Player's Choice: " + upper);
         console.log("You lose! Rock beats " + playerSelection);
       } else if (computerSelection === 2) {
+        console.log("Computer's Choice: SCISSORS | Player's Choice: " + upper);
         console.log("Draw");
       }
     } else {
@@ -116,10 +185,172 @@ function bestOfFiveGames() {
       "Score is: Computer: " + computerScore + " Player: " + playerScore
     );
   }
-  if(computerScore>playerScore){
-    console.log("Computer won the best of 5-match series: "+computerScore+"-"+playerScore+". Bad Luck")
-  }
-  else if(computerScore<playerScore){
-    console.log("You won the best of 5-match series: "+playerScore+"-"+computerScore+". Well Done")
+  if (computerScore > playerScore) {
+    console.log(
+      "Computer won the best of 5-match series: " +
+        computerScore +
+        "-" +
+        playerScore +
+        ". Bad Luck"
+    );
+  } else if (computerScore < playerScore) {
+    console.log(
+      "You won the best of 5-match series: " +
+        playerScore +
+        "-" +
+        computerScore +
+        ". Well Done"
+    );
   }
 }
+
+let result;
+
+function Rock() {
+  console.clear();
+  let playerSelection = "Rock";
+  let computerSelection = Math.floor(Math.random() * 3);
+
+  if (computerSelection === 0) {
+    computerScore++;
+    result =
+      "Computer's Choice: PAPER | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "You lose! Paper beats " +
+      playerSelection;
+    console.log(
+      "Computer's Choice: PAPER | Player's Choice: " + playerSelection
+    );
+    console.log("You lose! Paper beats " + playerSelection);
+  } else if (computerSelection === 1) {
+    result =
+      "Computer's Choice: ROCK | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "Draw";
+    console.log(
+      "Computer's Choice: ROCK | Player's Choice: " + playerSelection
+    );
+    console.log("Draw");
+  } else if (computerSelection === 2) {
+    playerScore++;
+    result =
+      "Computer's Choice: SCISSORS | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "You Win! " +
+      playerSelection +
+      " beats Scissors";
+    console.log(
+      "Computer's Choice: SCISSORS | Player's Choice: " + playerSelection
+    );
+    console.log("You Win! " + playerSelection + " beats Scissors");
+  }
+
+  document.getElementById("ComputerScore").innerHTML = computerScore;
+  document.getElementById("PlayerScore").innerHTML = playerScore;
+  document.getElementById("Results").innerHTML = result;
+
+  if (computerScore + playerScore > 10) {
+    computerScore = 0;
+    playerScore = 0;
+    console.log(
+      "Score is: Computer: " + computerScore + " Player: " + playerScore
+    );
+  } else {
+    console.log(
+      "Score is: Computer: " + computerScore + " Player: " + playerScore
+    );
+  }
+}
+
+function Paper() {
+  console.clear();
+  let playerSelection = "Paper";
+  let computerSelection = Math.floor(Math.random() * 3);
+
+  if (computerSelection === 0) {
+    result = "Computer's Choice: PAPER | Player's Choice: " + playerSelection+"\n"+"Draw";
+    console.log(
+      "Computer's Choice: PAPER | Player's Choice: " + playerSelection
+    );
+    console.log("Draw");
+  } else if (computerSelection === 1) {
+    playerScore++;
+    result="Computer's Choice: ROCK | Player's Choice: " + playerSelection+"\n"+"You Win! " + playerSelection + " beats Rock";
+    console.log(
+      "Computer's Choice: ROCK | Player's Choice: " + playerSelection
+    );
+    console.log("You Win! " + playerSelection + " beats Rock");
+  } else if (computerSelection === 2) {
+    computerScore++;
+    result="Computer's Choice: SCISSORS | Player's Choice: " + playerSelection+"\n"+"You lose! Scissors beats " + playerSelection
+    console.log(
+      "Computer's Choice: SCISSORS | Player's Choice: " + playerSelection
+    );
+    console.log("You lose! Scissors beats " + playerSelection);
+  }
+
+  document.getElementById("ComputerScore").innerHTML = computerScore;
+  document.getElementById("PlayerScore").innerHTML = playerScore;
+  document.getElementById("Results").innerHTML = result;
+
+  if (computerScore + playerScore > 10) {
+    computerScore = 0;
+    playerScore = 0;
+    console.log(
+      "Score is: Computer: " + computerScore + " Player: " + playerScore
+    );
+  } else {
+    console.log(
+      "Score is: Computer: " + computerScore + " Player: " + playerScore
+    );
+  }
+}
+
+function Scissors() {
+  console.clear();
+  let playerSelection = "Scissors";
+  let computerSelection = Math.floor(Math.random() * 3);
+
+  if (computerSelection === 0) {
+    playerScore++;
+    result = "Computer's Choice: PAPER | Player's Choice: " + playerSelection+"\n"+"You Win! " + playerSelection + " beats Paper";
+    console.log(
+      "Computer's Choice: PAPER | Player's Choice: " + playerSelection
+    );
+    console.log("You Win! " + playerSelection + " beats Paper");
+  } else if (computerSelection === 1) {
+    result="Computer's Choice: ROCK | Player's Choice: " + playerSelection+"\n"+"You lose! Rock beats " + playerSelection;
+    computerScore++;
+    console.log(
+      "Computer's Choice: ROCK | Player's Choice: " + playerSelection
+    );
+    console.log("You lose! Rock beats " + playerSelection);
+  } else if (computerSelection === 2) {
+    result="Computer's Choice: SCISSORS | Player's Choice: " + playerSelection+"\n"+"Draw";
+    console.log(
+      "Computer's Choice: SCISSORS | Player's Choice: " + playerSelection
+    );
+    console.log("Draw");
+  }
+
+  document.getElementById("ComputerScore").innerHTML = computerScore;
+  document.getElementById("PlayerScore").innerHTML = playerScore;
+  document.getElementById("Results").innerHTML = result;
+
+  if (computerScore + playerScore > 10) {
+    computerScore = 0;
+    playerScore = 0;
+    console.log(
+      "Score is: Computer: " + computerScore + " Player: " + playerScore
+    );
+  } else {
+    console.log(
+      "Score is: Computer: " + computerScore + " Player: " + playerScore
+    );
+  }
+}
+
+

@@ -12,21 +12,41 @@
 
 <body>
     <div class="heading">
-        <h1>Welcome to the Rock, Paper Scissors Game!</h1>
+        <h1>Welcome to the Rock, Paper, Scissors Game!</h1>
         <img src="./css/Images/RPS.jpg" alt="The Rock, Paper, Scissors Header Image">
     </div>
     <div class="paragraphs">
         <p>Test your skills against the Computer! </p>
-        <p>Choose between the 5 Match Series Game or the Best of 5 Games.</p>
-        <p>Press Shift+CTRL+J (Windows) or Option + ⌘ + J (macOS) to see the results</p>
+        <p>To begin the game, choose between the 5 Match Series or the Best of 5 buttons, where the user will be
+            prompted to insert Rock, Paper or Scissors and the results of the game will show in the console log.
+        </p>
+        <p>Or click on the RPS button below and the results of this game
+            will be displayed in the results panels below.</p>
+        <strong>
+            <p>NOTE! Press Shift+CTRL+J (Windows) or Option + ⌘ + J (macOS) before clicking on the buttons to see the
+                results on the console.</p>
+        </strong>
     </div>
 
-    <div class="buttons">
-        <input type="button" onclick="game()" value="5 Match Series Game">
-        <input type="button" onclick="bestOfFiveGames()" value="Best of 5 Games">
+    <div class="buttonsflex">
+        <input type="button" onclick="game()" value="5 Match Series Game" class="buttons">
+        <input type="button" onclick="bestOfFiveGames()" value="Best of 5 Games" class="buttons">
     </div>
+    <div class="scores">
+        <h2>Computer Score: </h2><p id="ComputerScore"></p>
+        <h2>Player Score: </h2><p id="PlayerScore"></p>
+    </div>
+    <div>
+        <p id="Results"></p>
+    </div>
+    <div class="rpsIcons">
+        <img src="css/Images/rock2.png" alt="Rock Icon" class="rpsImageRock" onclick="Rock()">
+        <img src="css/Images/paper.png" alt="Paper Icon" class="rpsImagePaper" onclick="Paper()">
+        <img src="css/Images/scissors.png" alt="Scissors Icon" class="rpsImageScissors" onclick="Scissors()">
+    </div>
+   
     <div class="links">
-        <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors">Info about Rock, Paper Scissors Game</a>
+        <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors">Info about the Rock, Paper Scissors Game</a>
     </div>
 </body>
 
