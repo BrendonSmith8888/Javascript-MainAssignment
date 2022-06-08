@@ -252,7 +252,7 @@ function Rock() {
   document.getElementById("PlayerScore").innerHTML = playerScore;
   document.getElementById("Results").innerHTML = result;
 
-  if (computerScore + playerScore > 10) {
+  if ((computerScore + playerScore) === 10) {
     computerScore = 0;
     playerScore = 0;
     console.log(
@@ -271,21 +271,36 @@ function Paper() {
   let computerSelection = Math.floor(Math.random() * 3);
 
   if (computerSelection === 0) {
-    result = "Computer's Choice: Paper | Player's Choice: " + playerSelection+"\n"+"Draw";
+    result =
+      "Computer's Choice: Paper | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "Draw";
     console.log(
       "Computer's Choice: Paper | Player's Choice: " + playerSelection
     );
     console.log("Draw");
   } else if (computerSelection === 1) {
     playerScore++;
-    result="Computer's Choice: Rock | Player's Choice: " + playerSelection+"\n"+"You Win! " + playerSelection + " beats Rock";
+    result =
+      "Computer's Choice: Rock | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "You Win! " +
+      playerSelection +
+      " beats Rock";
     console.log(
       "Computer's Choice: Rock | Player's Choice: " + playerSelection
     );
     console.log("You Win! " + playerSelection + " beats Rock");
   } else if (computerSelection === 2) {
     computerScore++;
-    result="Computer's Choice: Scissors | Player's Choice: " + playerSelection+"\n"+"You lose! Scissors beats " + playerSelection
+    result =
+      "Computer's Choice: Scissors | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "You lose! Scissors beats " +
+      playerSelection;
     console.log(
       "Computer's Choice: Scissors | Player's Choice: " + playerSelection
     );
@@ -296,7 +311,7 @@ function Paper() {
   document.getElementById("PlayerScore").innerHTML = playerScore;
   document.getElementById("Results").innerHTML = result;
 
-  if (computerScore + playerScore > 10) {
+  if ((computerScore + playerScore) === 10) {
     computerScore = 0;
     playerScore = 0;
     console.log(
@@ -316,20 +331,35 @@ function Scissors() {
 
   if (computerSelection === 0) {
     playerScore++;
-    result = "Computer's Choice: Paper | Player's Choice: " + playerSelection+"\n"+"You Win! " + playerSelection + " beats Paper";
+    result =
+      "Computer's Choice: Paper | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "You Win! " +
+      playerSelection +
+      " beats Paper";
     console.log(
       "Computer's Choice: Paper | Player's Choice: " + playerSelection
     );
     console.log("You Win! " + playerSelection + " beats Paper");
   } else if (computerSelection === 1) {
-    result="Computer's Choice: Rock | Player's Choice: " + playerSelection+"\n"+"You lose! Rock beats " + playerSelection;
+    result =
+      "Computer's Choice: Rock | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "You lose! Rock beats " +
+      playerSelection;
     computerScore++;
     console.log(
       "Computer's Choice: Rock | Player's Choice: " + playerSelection
     );
     console.log("You lose! Rock beats " + playerSelection);
   } else if (computerSelection === 2) {
-    result="Computer's Choice: Scissors | Player's Choice: " + playerSelection+"\n"+"Draw";
+    result =
+      "Computer's Choice: Scissors | Player's Choice: " +
+      playerSelection +
+      "\n" +
+      "Draw";
     console.log(
       "Computer's Choice: Scissors | Player's Choice: " + playerSelection
     );
@@ -340,7 +370,7 @@ function Scissors() {
   document.getElementById("PlayerScore").innerHTML = playerScore;
   document.getElementById("Results").innerHTML = result;
 
-  if (computerScore + playerScore > 10) {
+  if ((computerScore + playerScore) === 10) {
     computerScore = 0;
     playerScore = 0;
     console.log(
@@ -352,5 +382,3 @@ function Scissors() {
     );
   }
 }
-
-
