@@ -98,7 +98,11 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   console.clear();
   for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt("Enter Rock, Paper or Scissors");
+    let playerSelection = prompt("Enter Rock, Paper or Scissors").toLowerCase();
+    while ((playerSelection !== "rock") && (playerSelection !== "paper") && (playerSelection !== "scissors")){
+      let lower = prompt("Incorrect input.  Please enter either rock, paper, or scissors");
+      playerSelection = lower;
+    }
     const computerSelection = computerPlay();
     console.log(playRound(playerSelection, computerSelection));
     console.log(
@@ -130,7 +134,8 @@ function game() {
   playerScore = 0;
 }
 
-function bestOfFiveGames() {
+game();
+/* function bestOfFiveGames() {
   console.clear();
   let computerScore = 0;
   let playerScore = 0;
@@ -202,11 +207,11 @@ function bestOfFiveGames() {
         ". Well Done"
     );
   }
-}
+} */
 
 let result;
 
-function Rock() {
+/* function Rock() {
   console.clear();
   let playerSelection = "Rock";
   let computerSelection = Math.floor(Math.random() * 3);
@@ -381,4 +386,4 @@ function Scissors() {
       "Score is: Computer: " + computerScore + " Player: " + playerScore
     );
   }
-}
+} */
