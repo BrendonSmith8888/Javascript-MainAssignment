@@ -98,8 +98,8 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   console.clear();
   for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Enter Rock, Paper or Scissors").toLowerCase();
-    while ((playerSelection !== "rock") && (playerSelection !== "paper") && (playerSelection !== "scissors")){
+    let playerSelection = prompt("Enter Rock, Paper or Scissors");
+    while ((playerSelection.toLowerCase() !== "rock") && (playerSelection.toLowerCase() !== "paper") && (playerSelection.toLowerCase() !== "scissors")){
       let lower = prompt("Incorrect input.  Please enter either rock, paper, or scissors");
       playerSelection = lower;
     }
